@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 이름 ; 패키지명까지! -->
+<mapper namespace="org.won.dao.BoardMapper">
+
+	<!-- insert -->
+	<insert id="create" parameterType="BoardVO">
+		insert into TBL_BOARD(bno,
+		userid, title, content, regdate)
+		values(seq_bno.nextval,#{userid},#{title},#{content}, sysdate)
+	</insert>
+
+	<insert id="photocreate" parameterType="BoardVO">
+		insert into
+		tbl_photo(bno, pname) values(seq_bno.currval , #{pname})
+	</insert>
+
+	<!-- read -->
+	<select id="read" resultType="BoardVO">
+		select userid, title, replycnt
+		content from tbl_board where bno = #{bno}
+	</select>
+
+	<!-- update -->
+	<update id="update" parameterType="BoardVO">
+		update tbl_board set content =
+		#{content}, updatedate = sysdate where bno = #{bno}
+	</update>
+
+	<!-- delete -->
+	<delete id="delete" parameterType="String">
+		delete from tbl_board where
+		bno = #{bno}
+	</delete>
+
+	<delete id="photodelete" parameterType="String">
+		delete from tbl_photo
+		where bno = #{bno}
+	</delete>
+
+	<!-- list -->
+	<select id="list" resultType="BoardVO">
+		select * from(
+		select title, content, (select pname from TBL_PHOTO where
+		tbl_photo.bno=TBL_BOARD.BNO and rownum = 1) photo,
+		updatedate from TBL_BOARD)
+		where photo is not null
+		order by updatedate desc
+	</select>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 이름 ; 패키지명까지! -->
+<mapper namespace="org.won.dao.MemberMapper">
+
+ <insert id="create" parameterType="MemberVO">
+ 	insert into TBL_MEMBER(userid, userpw, uname, uphoto) values(#{userid},#{userpw},#{uname},#{uphoto})
+ </insert>
+
+</mapper>

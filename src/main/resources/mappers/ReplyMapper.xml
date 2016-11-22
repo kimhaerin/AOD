@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 이름 ; 패키지명까지! -->
+<mapper namespace="org.won.dao.ReplyMapper">
+	<insert id="create">
+		insert into tbl_reply(rno,bno,userid,rcontent) values(seq_rno.nextval,#{bno},#{userid},#{rcontent})
+	</insert>
+	
+	<delete id="delete">
+		delete tbl_reply where rno = #{rno}
+	</delete>
+	
+	<select id="list" resultType="ReplyVO">
+		select * from tbl_reply
+	</select>
+
+</mapper>
