@@ -13,23 +13,23 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Inject
 	private ReplyDAO dao;
-	
+
 	@Override
 	public void create(ReplyVO rvo) throws Exception {
-		// TODO Auto-generated method stub
+		dao.create(rvo);
 
 	}
 
 	@Override
 	public ReplyVO read(String bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+
+		return dao.read(bno);
 	}
 
 	@Override
 	public List<ReplyVO> list(String bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+
+		return dao.list();
 	}
 
 }

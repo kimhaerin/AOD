@@ -11,9 +11,10 @@ public class MemberServiceImpl implements MemberService {
 
 	@Inject
 	private MemberDAO dao;
+
 	@Override
 	public void create(MemberVO mvo) throws Exception {
-		// TODO Auto-generated method stub
+		dao.create(mvo);
 
 	}
 

@@ -10,26 +10,24 @@ import org.won.persistence.BoardDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
-	
+
 	@Inject
 	private BoardDAO dao;
 
 	@Override
 	public void create(BoardVO bvo) throws Exception {
-		// TODO Auto-generated method stub
+		dao.create(bvo);
 
 	}
 
 	@Override
 	public BoardVO read(String bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.read(bno);
 	}
 
 	@Override
 	public List<BoardVO> list(String bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.list();
 	}
 
 }
