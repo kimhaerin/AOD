@@ -74,6 +74,7 @@
 			</footer>
 
 		</div>
+<<<<<<< HEAD
 	</div>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script>
@@ -88,4 +89,22 @@
 		}
 	</script>
 </body>
+=======
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+			$("#loginBtn").on("mouseover",function(event){
+				$(this).removeClass("fa fa-unlock-alt");
+				$(this).addClass("fa fa-lock");
+			});
+			$("#loginBtn").on("mouseout",function(event){
+				$(this).removeClass("fa fa-lock");
+				$(this).addClass("fa fa-unlock-alt");
+			});
+			
+		</script>
+	</body>
+>>>>>>> branch 'master' of https://github.com/kimhaerin/AOD.git
 </html>
